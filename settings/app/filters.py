@@ -28,7 +28,7 @@ class HotelFilterSet(FilterSet):
 
 class RoomFilterSet(FilterSet):
     class Meta:
-        model = Room['hotel', 'room_number', 'quantity', 'price']
+        model = Room
         fields = {
             'hotel': ['exact'],
             'room_number': ['gt', 'lt'],
