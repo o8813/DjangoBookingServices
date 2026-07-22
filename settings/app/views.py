@@ -52,8 +52,9 @@ class HotelListView(generics.ListCreateAPIView):
     serializer_class = HotelListSerializer
 
     filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
-    search_fields = ['country', 'city', 'name']
+    search_fields = ['country', 'city', 'name', 'description']
     ordering_fields = ['id', 'price', 'created_date']
+    ordering = ['-created_date']
     filterset_class = HotelFilterSet
 
     def perform_create(self, serializer):
