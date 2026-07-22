@@ -4,19 +4,33 @@ from .models import *
 class CountryFilterSet(FilterSet):
     class Meta:
         model = Country
-        fields = ['name']
+        fields = {
+            'name': ['exact']
+        }
 
 class CityFilterSet(FilterSet):
     class Meta:
         model = City
-        fields = ['country', 'name']
+        fields = {
+            'country': ['exact'],
+            'name': ['exact']
+        }
 
 class HotelFilterSet(FilterSet):
     class Meta:
         model = Hotel
-        fields = ['country', 'city', 'name']
+        fields = {
+            'country': ['exact'],
+            'city': ['exact'],
+            'name': ['exact']
+        }
 
 class RoomFilterSet(FilterSet):
     class Meta:
-        model = Room
-        fields = ['hotel', 'room_number', 'quantity']
+        model = Room['hotel', 'room_number', 'quantity', 'price']
+        fields = {
+            'hotel': ['exact'],
+            'room_number': ['gt', 'lt'],
+            'quantity': ['gt', 'lt'],
+            'price': ['gt', 'lt']
+        }
