@@ -22,7 +22,8 @@ class HotelFilterSet(FilterSet):
         fields = {
             'country': ['exact'],
             'city': ['exact'],
-            'name': ['exact']
+            'name': ['exact'],
+            'created_date': ['gt', 'lt']
         }
 
 class RoomFilterSet(FilterSet):
