@@ -58,7 +58,7 @@ class HotelRetrieveView(generics.RetrieveAPIView):
 
 class HotelDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Hotel.objects.all()
-    serializer_class = HotelDetailSerializer
+    serializer_class = HotelListSerializer
     permission_classes = [IsHotelOwner, IsOwnerOfHotel]
 
 class HotelListView(generics.ListCreateAPIView):
