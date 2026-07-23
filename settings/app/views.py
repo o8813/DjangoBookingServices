@@ -4,6 +4,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter, SearchFilter
 from .filters import *
 from .models import *
+from .permissions import *
 
 class CountryRetrieveView(generics.RetrieveAPIView):
     queryset = Country.objects.all()
@@ -58,6 +59,7 @@ class HotelRetrieveView(generics.RetrieveAPIView):
 class HotelDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Hotel.objects.all()
     serializer_class = HotelDetailSerializer
+    permission_classes = [IsHotelOwner, IsOwnerOfHotel]
 
 class HotelListView(generics.ListCreateAPIView):
     queryset = Hotel.objects.all()
