@@ -5,6 +5,10 @@ from rest_framework.filters import OrderingFilter, SearchFilter
 from .filters import *
 from .models import *
 
+class CountryRetrieveView(generics.RetrieveAPIView):
+    queryset = Country.objects.all()
+    serializer_class = CountryDetailSerializer
+
 class CountryDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Country.objects.all()
     serializer_class = CountryDetailSerializer
@@ -24,6 +28,10 @@ class CountryListView(generics.ListCreateAPIView):
         return super().get_serializer_class()
 
 
+class CityRetrieveView(generics.RetrieveAPIView):
+    queryset = City.objects.all()
+    serializer_class = CityDetailSerializer
+
 class CityDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = City.objects.all()
     serializer_class = CityDetailSerializer
@@ -42,6 +50,10 @@ class CityListView(generics.ListCreateAPIView):
             return CityDetailSerializer
         return super().get_serializer_class()
 
+
+class HotelRetrieveView(generics.RetrieveAPIView):
+    queryset = Hotel.objects.all()
+    serializer_class = HotelDetailSerializer
 
 class HotelDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Hotel.objects.all()
@@ -65,6 +77,10 @@ class HotelListView(generics.ListCreateAPIView):
             return HotelDetailSerializer
         return super().get_serializer_class()
 
+
+class RoomRetrieveView(generics.RetrieveAPIView):
+    queryset = Room.objects.all()
+    serializer_class = RoomDetailSerializer
 
 class RoomDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Room.objects.all()
